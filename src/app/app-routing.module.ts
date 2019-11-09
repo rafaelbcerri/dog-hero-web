@@ -4,12 +4,14 @@ import { DogWalkingListComponent } from './dog-walkings/dog-walking-list/dog-wal
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { SignupComponent } from './home/signup/signup.component';
 import { LoginComponent } from './home/login/login.component';
+import { AuthGuard } from './core/auth/auth.guard';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent},
+  { path: '', component: LoginComponent, canActivate: [AuthGuard]},
   { path: 'signup', component: SignupComponent},
   { path: 'dog-walking', component: DogWalkingListComponent},
+  { path: 'search', component: DogWalkingListComponent},
   { path: '**', component: NotFoundComponent}
 ];
 

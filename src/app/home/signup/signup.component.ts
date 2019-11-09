@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
             .authenticate(email, password)
             .subscribe(
               () => {
-                const route = role === 'pet_owner' ? role : 'walker';
+                const route = role === 'pet_owner' ? role : 'search';
                 this.router.navigate([route]);
               },
               (error) => {
