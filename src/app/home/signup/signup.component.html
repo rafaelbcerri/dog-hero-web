@@ -1,0 +1,39 @@
+<form [formGroup]="signupForm" (submit)="handleSubmit()">
+
+  <div>
+    <label>Name</label>
+    <input formControlName="name" type="text" />
+    <app-form-message
+      *ngIf="signupForm.get('name').errors?.required"
+      text="O nome é obrigatório">
+    </app-form-message>
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input formControlName="email" type="email" />
+    <app-form-message
+      *ngIf="signupForm.get('email').errors?.required"
+      text="O email é obrigatório">
+    </app-form-message>
+  </div>
+
+  <div>
+    <label>Senha</label>
+    <input formControlName="password" type="password" />
+    <app-form-message
+      *ngIf="signupForm.get('password').errors?.required"
+      text="A senha é obrigatório">
+    </app-form-message>
+  </div>
+
+  <div>
+    <label>Papel</label>
+    <input formControlName="role" type="radio" value="pet_owner" />Dono de pet
+    <input formControlName="role" type="radio" value="walker" />Passeador
+  </div>
+
+  <button [disabled]="signupForm.invalid">Cadastrar</button>
+
+  <p>Já tem uma conta? <a routerLink="/">Login</a></p>
+</form>

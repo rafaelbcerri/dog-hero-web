@@ -1,0 +1,19 @@
+<form [formGroup]="loginForm" (submit)="handleSubmit()">
+  <div>
+    <label>Email</label>
+    <input formControlName="email" type="email" />
+    <app-form-message *ngIf="loginForm.get('email').errors?.required" text="O email é obrigatório">
+    </app-form-message>
+  </div>
+
+  <div>
+    <label>Senha</label>
+    <input formControlName="password" type="password" />
+    <app-form-message *ngIf="loginForm.get('password').errors?.required" text="A senha é obrigatório">
+    </app-form-message>
+  </div>
+
+  <button [disabled]="loginForm.invalid">Entrar</button>
+
+  <p>Criar uma conta? <a routerLink="/signup">Cadastro</a></p>
+</form>
