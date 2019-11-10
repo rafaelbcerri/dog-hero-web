@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', Validators.required ],
       password: ['', Validators.required],
-      role: ['pet_owner', Validators.required],
+      role: ['pet-owner', Validators.required],
     })
 
   }
@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
             .authenticate(email, password)
             .subscribe(
               () => {
-                const route = role === 'pet_owner' ? role : 'search';
+                const route = role === 'pet-owner' ? role : 'search';
                 this.router.navigate([route]);
               },
               (error) => {
