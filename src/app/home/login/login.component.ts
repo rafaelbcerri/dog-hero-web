@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { TokenService } from 'src/app/core/token/token.service';
-import jwtDecode from "jwt-decode";
 
 @Component({
   selector: 'app-login',
@@ -36,10 +35,8 @@ export class LoginComponent implements OnInit {
       .authenticate(email, password)
       .subscribe(
         () => {
-          const token = this.tokenService.getToken();
-          const { role } = jwtDecode(token);
-          const route = role === 'pet_owner' ? role : 'walker';
-          this.router.navigate([route]);
+          const { role } = this.tokenService.getDecodedToken();
+          this.router.navigate([role === 'pet_owner' ? 'pet-owner' : role]);
         },
         (error) => {
           console.log(error);
