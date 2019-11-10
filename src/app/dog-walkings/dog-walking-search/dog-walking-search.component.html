@@ -1,0 +1,10 @@
+<app-dog-walking
+  *ngFor="let dogWalking of dogWalkings"
+  [duration]="dogWalking.duration"
+  [scheduledDate]="dogWalking.scheduled_date"
+  [latitude]="dogWalking.latitude"
+  [longitude]="dogWalking.longitude"
+  [dogs]="dogWalking.dogs"
+  [dogWalkingStatus]="dogWalking.dog_walking_status"
+  [price]="dogWalking.price">
+</app-dog-walking>

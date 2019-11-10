@@ -7,7 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DogWalkingComponent implements OnInit {
 
-  @Input() teste="";
+  @Input() duration = "";
+  @Input() scheduledDate = "";
+  @Input() latitude = "";
+  @Input() longitude = "";
+  @Input() dogs = [];
+  @Input() price = "";
+  @Input() dogWalkingStatus = {};
+
   constructor() { }
 
   ngOnInit() {
