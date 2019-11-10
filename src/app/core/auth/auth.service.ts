@@ -42,4 +42,10 @@ export class AuthService {
         this.tokenService.setToken(token);
       }))
   }
+
+  isTokenExpired(): boolean {
+    const { exp } = this.tokenService.getDecodedToken();
+    const currentTime = new Date().getTime() / 1000;
+    return currentTime > exp;
+  }
 }
