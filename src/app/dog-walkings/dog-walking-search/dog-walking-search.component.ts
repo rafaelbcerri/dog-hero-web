@@ -27,7 +27,7 @@ export class DogWalkingSearchComponent implements OnInit {
       .getDogWalkings()
       .subscribe(
         dogWalkings => this.dogWalkings = dogWalkings,
-        err => console.log(err)
+        error => console.log(error)
       );
 
     this.boundRemoveDogWalking = this.removeDogWalking.bind(this);

@@ -49,7 +49,7 @@ export class DogWalkingPetOwnerComponent implements OnInit {
           this.dogs = dogs;
           this.selectedDogs = dogs.map(dog => dog.id);
         },
-        err => console.log(err)
+        error => console.log(error)
       );
 
     this.dogWalkingService
@@ -60,7 +60,7 @@ export class DogWalkingPetOwnerComponent implements OnInit {
             return +new Date(b.scheduled_date) - +new Date(a.scheduled_date);
           })
         },
-        err => console.log(err)
+        error => console.log(error)
       )
   }
 

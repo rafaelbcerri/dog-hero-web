@@ -33,7 +33,7 @@ export class DogWalkingWalkerComponent implements OnInit {
           this.todoDogWalkings = dogWalkings
             .filter(dogWalking => dogWalking.dog_walking_status_id !== 4);
         },
-        err => console.log(err)
+        error => console.log(error)
       );
 
     this.setUserLocation();
@@ -63,5 +63,4 @@ export class DogWalkingWalkerComponent implements OnInit {
     this.tokenService.removeToken();
     this.router.navigateByUrl('/');
   }
-
 }

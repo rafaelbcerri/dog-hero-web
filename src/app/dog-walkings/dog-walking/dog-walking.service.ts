@@ -109,7 +109,7 @@ export class DogWalkingService {
 
   startDogWalking(dogWalkingId) {
     const token = this.tokenService.getToken();
-    console.log(token)
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Accept': 'application/json',
