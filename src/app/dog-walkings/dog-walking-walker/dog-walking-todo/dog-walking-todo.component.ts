@@ -18,7 +18,8 @@ export class WalkerDogWalkingTodoComponent implements OnChanges, OnInit {
   @Input() dogWalkingStatus: DogWalkingStatus;
   @Input() userLatitude = {};
   @Input() userLongitude = {};
-  @Input() changeDogWalkingStatus: Function;
+  @Input() startDogWalking: Function;
+  @Input() finishDogWalking: Function;
   distance = null;
   status = "";
 
@@ -66,6 +67,7 @@ export class WalkerDogWalkingTodoComponent implements OnChanges, OnInit {
 
   startWalk() {
     this.status = 'Em progresso';
+    this.startDogWalking(this.id);
     this.dogWalkingService
       .startDogWalking(this.id)
       .subscribe(
@@ -75,7 +77,7 @@ export class WalkerDogWalkingTodoComponent implements OnChanges, OnInit {
   }
 
   finishWalk() {
-    this.changeDogWalkingStatus(this.id)
+    this.finishDogWalking(this.id)
 
     this.dogWalkingService
       .finishDogWalking(this.id)

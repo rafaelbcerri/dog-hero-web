@@ -23,7 +23,9 @@ export class SignupComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      role: ['pet_owner', Validators.required],
+      role: ['walker', Validators.required],
+      dogName: [''],
+      dogAge: ['']
     });
 
   }
@@ -33,9 +35,24 @@ export class SignupComponent implements OnInit {
     const email = this.signupForm.get('email').value;
     const password = this.signupForm.get('password').value;
     const role = this.signupForm.get('role').value;
+    const dogName = this.signupForm.get('dogName').value;
+    const dogAge = this.signupForm.get('dogAge').value;
+    const dog = { name: dogName, age: +dogAge };
+
+    const body = {
+      name,
+      email,
+      password,
+      role,
+      dogs: null
+    };
+
+    if (dog.name) {
+      body.dogs = [dog];
+    }
 
     this.authService
-      .register(name, email, password, role)
+      .register(body)
       .subscribe(
         () => {
           this.authService

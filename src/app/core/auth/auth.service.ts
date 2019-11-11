@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from "../../../environments/environment";
 import { tap } from "rxjs/operators";
 import { TokenService } from '../token/token.service';
+import { Dog } from 'src/app/dog-walkings/dog-walking/dog-walking';
 
 @Injectable({
   providedIn: 'root'
@@ -14,16 +15,11 @@ export class AuthService {
     private tokenService: TokenService
   ) { }
 
-  register(name: string, email: string, password: string, role: string) {
+  register(body) {
     return this.http
       .post(
         `${environment.apiUrl}/signup`,
-        {
-          name,
-          email,
-          password,
-          role
-        }
+        { ...body }
       )
   }
 

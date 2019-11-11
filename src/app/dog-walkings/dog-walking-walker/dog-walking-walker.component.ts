@@ -15,7 +15,8 @@ export class DogWalkingWalkerComponent implements OnInit {
   todoDogWalkings: DogWalking[] = []
   userLatitude = null;
   userLongitude = null;
-  boundChangeDogWalkingStatus: Function;
+  boundFinishDogWalking: Function;
+  boundStartDogWalking: Function;
 
   constructor(
     private dogWalkingService: DogWalkingService,
@@ -37,7 +38,8 @@ export class DogWalkingWalkerComponent implements OnInit {
       );
 
     this.setUserLocation();
-    this.boundChangeDogWalkingStatus = this.changeDogWalkingStatus.bind(this)
+    this.boundFinishDogWalking = this.finishDogWalking.bind(this)
+    this.boundStartDogWalking = this.startDogWalking.bind(this)
   }
 
   setUserLocation() {
@@ -51,9 +53,17 @@ export class DogWalkingWalkerComponent implements OnInit {
     );
   }
 
-  changeDogWalkingStatus(dogWalkingId) {
+  startDogWalking(dogWalkingId) {
+    const dogWalkingIndex = this.todoDogWalkings
+      .findIndex(dogWalking => dogWalking.id === dogWalkingId);
+    this.todoDogWalkings[dogWalkingIndex].begin_date = new Date();
+  }
+
+  finishDogWalking(dogWalkingId) {
     const finishedDogWalking: DogWalking = this.todoDogWalkings
       .filter(dogWalking => dogWalking.id === dogWalkingId)[0];
+    finishedDogWalking.end_date = new Date();
+
     this.todoDogWalkings = this.todoDogWalkings
       .filter(dogWalking => dogWalking.id !== dogWalkingId);
     this.doneDogWalkings.push(finishedDogWalking);
