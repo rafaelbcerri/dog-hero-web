@@ -1,4 +1,53 @@
-<app-dog-walking
+<header class="header">
+  <img class="header__logo" src="assets/img/logo.png" />
+  <div class="header__links">
+    <a class="header__link" (click)="logout()">Sair</a>
+  </div>
+</header>
+
+<form class="form" [formGroup]="dogWalkingForm" (submit)="handleSubmit()">
+  <h1 class="form__header">Adicione um passeio</h1>
+  <section class="form__section">
+
+    <div>
+      <label class="form__label">Endereço:</label>
+      <input class="form__input form__input--readonly" type="text" [value]="userLatitude ? 'Localização atual' : 'calculando...'" />
+    </div>
+
+    <div>
+      <label class="form__label">Duração:</label>
+      <div>
+        <input class="form__radio" id="thirty" formControlName="duration" type="radio" value="30" />
+        <label class="radio__label" for="thirty">30 minutos</label>
+      </div>
+      <div>
+        <input class="form__radio" id="sixty" formControlName="duration" type="radio" value="60" />
+        <label class="radio__label" for="sixty">60 minutos</label>
+      </div>
+    </div>
+
+    <div>
+      <label class="form__label">Data e hora:</label>
+      <input class="form__input" type="date" formControlName="date" />
+      <input class="form__input" type="time" formControlName="time"/>
+    </div>
+
+    <div>
+      <label class="form__label">Dogs:</label>
+
+      <div
+        *ngFor="let dog of dogs">
+        <input class="form__checkbox" [name]="dog.id" type="checkbox" (click)="handleCheckbox($event)" checked/>
+        <label class="radio__label" >{{dog.name}}</label>
+      </div>
+    </div>
+  </section>
+  <button class="form__button">Adicionar</button>
+</form>
+
+<h1 class="dog-walkings">Meus passeios</h1>
+
+<app-pet-owner-dog-walking
   *ngFor="let dogWalking of dogWalkings"
   [duration]="dogWalking.duration"
   [scheduledDate]="dogWalking.scheduled_date"
@@ -6,5 +55,6 @@
   [longitude]="dogWalking.longitude"
   [dogs]="dogWalking.dogs"
   [dogWalkingStatus]="dogWalking.dog_walking_status"
+  [walker]="dogWalking.user"
   [price]="dogWalking.price">
-</app-dog-walking>
+</app-pet-owner-dog-walking>

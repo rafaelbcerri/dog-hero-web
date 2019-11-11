@@ -15,7 +15,7 @@ export interface DogWalking {
   dog_walking_status: DogWalkingStatus
 }
 
-interface Dog {
+export interface Dog {
   id: number,
   name: string,
   age: number,
@@ -24,9 +24,15 @@ interface Dog {
   user_id: number
 }
 
-interface DogWalkingStatus {
+export interface DogWalkingStatus {
   id: number,
   name: string,
   created_at: Date,
   updated_at: Date
+}
+
+export interface User {
+  id: number,
+  name: string,
+  email: string,
 }

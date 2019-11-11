@@ -1,10 +1,34 @@
-<app-dog-walking
-  *ngFor="let dogWalking of dogWalkings"
-  [duration]="dogWalking.duration"
+<header class="header">
+  <img class="header__logo" src="assets/img/logo.png" />
+  <div class="header__links">
+    <a class="header__link" routerLink="/search" >Buscar passeios</a>
+    <a class="header__link" (click)="logout()">Sair</a>
+  </div>
+</header>
+
+<app-walker-dog-walking-todo
+  *ngFor="let dogWalking of todoDogWalkings"
+  [id]="dogWalking.id"
   [scheduledDate]="dogWalking.scheduled_date"
+  [duration]="dogWalking.duration"
   [latitude]="dogWalking.latitude"
   [longitude]="dogWalking.longitude"
+  [userLatitude]="userLatitude"
+  [userLongitude]="userLongitude"
+  [price]="dogWalking.price"
   [dogs]="dogWalking.dogs"
   [dogWalkingStatus]="dogWalking.dog_walking_status"
+  [changeDogWalkingStatus]="boundChangeDogWalkingStatus">
+</app-walker-dog-walking-todo>
+
+<h1 class="done-walks">Passeios concluídos</h1>
+
+<app-walker-dog-walking-done
+  *ngFor="let dogWalking of doneDogWalkings"
+  [duration]="dogWalking.duration"
+  [scheduledDate]="dogWalking.scheduled_date"
+  [beginDate]="dogWalking.begin_date"
+  [endDate]="dogWalking.end_date"
+  [dogs]="dogWalking.dogs"
   [price]="dogWalking.price">
-</app-dog-walking>
+</app-walker-dog-walking-done>

@@ -1,39 +1,37 @@
-<form [formGroup]="signupForm" (submit)="handleSubmit()">
+<section class="signup">
+  <img class="signup__logo" src="assets/img/logo.png" />
+  <form class="signup__form" [formGroup]="signupForm" (submit)="handleSubmit()">
 
-  <div>
-    <label>Name</label>
-    <input formControlName="name" type="text" />
-    <app-form-message
-      *ngIf="signupForm.get('name').errors?.required"
-      text="O nome é obrigatório">
-    </app-form-message>
-  </div>
+    <div class="signup__form-field">
+      <label class="signup__label">Name</label>
+      <input class="signup__input" placeholder="Example" formControlName="name" type="text" />
+    </div>
 
-  <div>
-    <label>Email</label>
-    <input formControlName="email" type="email" />
-    <app-form-message
-      *ngIf="signupForm.get('email').errors?.required"
-      text="O email é obrigatório">
-    </app-form-message>
-  </div>
+    <div class="signup__form-field">
+      <label class="signup__label">Email</label>
+      <input class="signup__input" placeholder="example@mail.com" formControlName="email" type="email" />
+    </div>
 
-  <div>
-    <label>Senha</label>
-    <input formControlName="password" type="password" />
-    <app-form-message
-      *ngIf="signupForm.get('password').errors?.required"
-      text="A senha é obrigatório">
-    </app-form-message>
-  </div>
+    <div class="signup__form-field">
+      <label class="signup__label">Senha</label>
+      <input class="signup__input" formControlName="password" type="password" placeholder="*******" />
+      <small class="signup__alert">Mínimo de 6 dígitos</small>
+    </div>
 
-  <div>
-    <label>Papel</label>
-    <input formControlName="role" type="radio" value="pet-owner" />Dono de pet
-    <input formControlName="role" type="radio" value="walker" />Passeador
-  </div>
+    <div class="signup__form-field">
+      <label class="signup__label">Quem você é?</label>
+      <div>
+        <input class="signup__radio" id="pet-owner" formControlName="role" type="radio" value="pet_owner" />
+        <label for="pet-owner">Dono de pet</label>
+      </div>
+      <div>
+        <input class="signup__radio" id="walker" formControlName="role" type="radio" value="walker" />
+        <label for="walker">Passeador</label>
+      </div>
+    </div>
 
-  <button [disabled]="signupForm.invalid">Cadastrar</button>
+    <button class="signup__button" [disabled]="signupForm.invalid">Cadastrar</button>
 
-  <p>Já tem uma conta? <a routerLink="/">Login</a></p>
-</form>
+    <p class="signup__text">Já tem uma conta? <a class="signup__link" routerLink="/">Entrar</a></p>
+  </form>
+</section>

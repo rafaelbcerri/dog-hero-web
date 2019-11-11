@@ -1,0 +1,11 @@
+<div class="search-card">
+  <div>
+    <h1 class="search-card__header">{{ scheduledDate }}</h1>
+    <h2 class="search-card__sub-header">Duração: {{ walkDuration }} minutos</h2>
+    <h2 class="search-card__sub-header">Data do início: {{ beginDate }}</h2>
+    <h2 class="search-card__sub-header">Data do termino: {{ endDate }}</h2>
+    <h2 class="search-card__sub-header">Preço: R${{ price }}</h2>
+    <h2 class="search-card__dog-header">Dogs:</h2>
+    <h3 class="search-card__dog" *ngFor="let dog of dogs">{{ dog.name }}</h3>
+  </div>
+</div>

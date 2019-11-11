@@ -21,10 +21,10 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.signupForm = this.formBuilder.group({
       name: ['', Validators.required],
-      email: ['', Validators.required ],
+      email: ['', Validators.required],
       password: ['', Validators.required],
-      role: ['pet-owner', Validators.required],
-    })
+      role: ['pet_owner', Validators.required],
+    });
 
   }
 
@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
             .authenticate(email, password)
             .subscribe(
               () => {
-                const route = role === 'pet-owner' ? role : 'search';
+                const route = role === 'pet_owner' ? 'pet-owner' : 'search';
                 this.router.navigate([route]);
               },
               (error) => {

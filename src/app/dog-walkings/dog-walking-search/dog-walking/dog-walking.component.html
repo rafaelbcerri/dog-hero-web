@@ -1,0 +1,17 @@
+<div class="search-card">
+  <div>
+    <h1 class="search-card__header">{{ scheduledDate }}</h1>
+    <h2 class="search-card__sub-header">Duração: {{ duration }} minutos</h2>
+    <h2 class="search-card__sub-header">Distância: {{ distance > 1000 ? 'calculando...' : distance }} km</h2>
+    <h2 class="search-card__dog-header">Dogs:</h2>
+    <p class="search-card__dog" *ngFor="let dog of dogs">{{ dog.name }}</p>
+  </div>
+  <div class="search-card__group">
+    <div></div>
+    <div>
+      <small class="search-card__currency">R$</small><h1 class="search-card__price">{{price}}</h1>
+    </div>
+    <button class="search-card__button" (click)="selectDogWalking()">Selecionar</button>
+  </div>
+
+</div>

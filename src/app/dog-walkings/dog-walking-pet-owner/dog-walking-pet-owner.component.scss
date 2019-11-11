@@ -1,0 +1,147 @@
+.header {
+  background: #FFF;
+  padding: 10px;
+  box-shadow: 0px 3px 5px 0px #ccc;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header__logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .header__links {
+    display: flex;
+    align-items: center;
+    color: #525357;
+  }
+
+  .header__link {
+    padding: 0 10px;
+
+    &:hover {
+      color: #222;
+    }
+  }
+}
+
+.form {
+  background-color: #FFF;
+  border-radius: 10px;
+  box-shadow: 0px 3px 5px 0px #ccc;
+  margin: 20px 40px;
+  padding: 15px;
+  color: #525357;
+  max-width: 500px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+
+  .form__header {
+    font-size: 30px;
+  }
+
+  .form__label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+  }
+
+  .form__input {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+
+    &.form__input--readonly {
+      background-color: #ccc;
+      color: #525357;
+      cursor: not-allowed;
+    }
+  }
+
+  .form__radio {
+    margin-bottom: 10px;
+
+    &:after {
+        width: 15px;
+        height: 15px;
+        border-radius: 15px;
+        top: -3px;
+        left: -3px;
+        position: relative;
+        background-color: #fff;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 1px solid #ccc;
+    }
+
+    &:checked:after {
+      background-color: #ef3a5d;
+      border: 1px solid #ef3a5d;
+    }
+  }
+
+  .form__checkbox {
+    margin-bottom: 10px;
+
+    &:before {
+        width: 15px;
+        height: 15px;
+        border-radius: 3px;
+        top: -3px;
+        left: -3px;
+        position: relative;
+        background-color: #fff;
+        content: '';
+        display: inline-block;
+        visibility: visible;
+        border: 1px solid #ccc;
+    }
+
+    &:after {
+      content: '';
+    }
+
+    &:checked:before {
+      background-color: #ef3a5d;
+      border: 1px solid #ef3a5d;
+    }
+
+    &:checked:after {
+      content: "✓";
+      font-size: 16px;
+      color: #fff;
+      position: relative;
+      top: -23px;
+      right: 1px;
+    }
+  }
+
+  .radio__label {
+    margin-left: 5px;
+  }
+
+
+  .form__button {
+    background-color: #ef3a5d;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    align-self: flex-end;
+  }
+}
+
+.dog-walkings {
+  color: #525357;
+  font-size: 30px;
+  margin: 30px 40px;
+}

@@ -1,10 +1,22 @@
-<app-dog-walking
+<header class="header">
+  <img class="header__logo" src="assets/img/logo.png"/>
+  <div class="header__links">
+    <a class="header__link" routerLink="/walker">Meus Passeios</a>
+    <a class="header__link" (click)="logout()">Sair</a>
+  </div>
+</header>
+
+<app-search-dog-walking
   *ngFor="let dogWalking of dogWalkings"
+  [id]="dogWalking.id"
   [duration]="dogWalking.duration"
   [scheduledDate]="dogWalking.scheduled_date"
   [latitude]="dogWalking.latitude"
   [longitude]="dogWalking.longitude"
   [dogs]="dogWalking.dogs"
   [dogWalkingStatus]="dogWalking.dog_walking_status"
-  [price]="dogWalking.price">
-</app-dog-walking>
+  [price]="dogWalking.price"
+  [userLatitude]="userLatitude"
+  [userLongitude]="userLongitude"
+  [removeDogWalking]="boundRemoveDogWalking">
+</app-search-dog-walking>

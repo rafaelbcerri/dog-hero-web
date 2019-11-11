@@ -1,0 +1,34 @@
+.header {
+  background: #FFF;
+  padding: 10px;
+  box-shadow: 0px 3px 5px 0px #ccc;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header__logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .header__links {
+    display: flex;
+    align-items: center;
+    color: #525357;
+  }
+
+  .header__link {
+    padding: 0 10px;
+
+    &:hover {
+      color: #222;
+    }
+  }
+}
+
+.done-walks {
+  color: #525357;
+  font-size: 30px;
+  margin: 30px 40px;
+}
