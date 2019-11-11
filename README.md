@@ -23,3 +23,11 @@ $ docker-compose up
 ```
 
 Do not forget to run [DogHeroApi](https://github.com/rafaelbcerri/dog-hero-api)
+
+
+## Add node_modules for VS Code TypeScript
+
+```sh
+$ docker-compose ps  // Search for the container name
+$ docker cp {container_name}:/web/node_modules ./
+```

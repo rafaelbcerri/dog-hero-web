@@ -30,6 +30,18 @@
       </div>
     </div>
 
+
+    <div *ngIf="signupForm.controls.role.value === 'pet_owner'" class="signup__form-field">
+      <div class="signup__form-field">
+        <label class="signup__label">Nome do dog</label>
+        <input class="signup__input" placeholder="Cãozinho" formControlName="dogName" type="text" />
+      </div>
+      <div class="signup__form-field">
+        <label class="signup__label">Idade do dog</label>
+        <input class="signup__input" placeholder="4" formControlName="dogAge" type="text" />
+      </div>
+    </div>
+
     <button class="signup__button" [disabled]="signupForm.invalid">Cadastrar</button>
 
     <p class="signup__text">Já tem uma conta? <a class="signup__link" routerLink="/">Entrar</a></p>
