@@ -1,27 +1,25 @@
 # DogHeroWeb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.16.
+## Requirements
 
-## Development server
+* Port 4200 should be available in your computer.
+* Docker ([install](https://docs.docker.com/install/))
+* Docker Compose ([install](https://docs.docker.com/compose/install/))
+* DogHeroApi ([install](https://github.com/rafaelbcerri/dog-hero-api))
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Setup
 
-## Code scaffolding
+```sh
+$ git clone https://github.com/rafaelbcerri/dog-hero-web
+$ cd dog-hero-web
+$ docker-compose build
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Start application
 
-## Build
+```sh
+$ docker-compose up
+// Then go to http://localhost:4200/
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Do not forget to run [DogHeroApi](https://github.com/rafaelbcerri/dog-hero-api)
